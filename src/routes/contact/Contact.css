@@ -1,0 +1,61 @@
+.contact__page__wrapper{
+   margin-top: 170px;
+   margin-bottom: 20px;
+}
+.contact__imgs{
+   width: 100%;
+   height: auto;
+   display: flex;
+   gap: 20px;
+   margin-top: 20px;
+}
+
+.contact__banner__img{
+   height: 300px;
+   width: 70%;
+   object-fit: cover;
+   border-radius: 10px;
+}
+
+.qr__code{
+   width: 30%;
+   height: 300px;
+   background-color: #96B1C2;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding-left: 30px;
+   border-radius: 10px;
+}
+
+.qr__code img{
+   width: 100px;
+   border-radius: 10px;
+}
+
+.qr__code h4{
+   color: #fff;
+   margin-top: 5px;
+}
+
+.qr__code h4:last-child{
+   margin-top: 40px;
+}
+
+.qr__code h4:last-child a{
+   color: #fff;
+}
+
+.contact__call{
+   margin-top: 20px;
+   color: var(--text-color);  
+}
+
+.contact__tg{
+   margin-top: 20px;
+}
+
+.contact__desc{
+   color: var(--text-color);
+   font-weight: 500;
+}

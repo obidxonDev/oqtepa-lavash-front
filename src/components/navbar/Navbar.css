@@ -1,0 +1,158 @@
+.navbar__wrapper{
+   position: fixed;
+   top: 0;
+   z-index: 10;
+   margin: 0px 150px 0px 150px;
+   height: 170px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   background-color: #fff;
+}
+
+.navbar__items{
+   float: right;
+}
+
+.nav__items{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.nav__items svg{
+   border-radius: 50%;
+   font-size: 30px;
+   background-color: pink;
+   color: var(--bg-red);
+}
+
+.navbar__text{
+   font-weight: 500;
+}
+
+.delivery__text p:last-child,
+.location__text p:last-child{
+   color: var(--bg-red);
+   cursor: pointer;
+   font-weight: 600;
+}
+
+.nav__links ul{
+   display: flex;
+   gap: 10px;
+   font-weight: 500;
+}
+
+
+.search__input{
+   border: 1px solid var(--bg-gray);
+   height: 40px;
+   margin-top: 20px;
+   display: flex;
+   align-items: center;
+   border-radius: 10px;
+   overflow: hidden;
+}
+
+.search__input svg{
+   font-size: 23px;
+   color: var(--bg-gray);
+   margin: 0 10px 0 10px;
+}
+
+.search__input input{
+   border: none;
+   outline: none;
+   width: 100%;
+   height: 100%;
+   font-size: 20px;
+}
+.login__box__top{
+   display: flex;
+   gap: 10px;
+   position: relative;
+}
+
+.navbar__login__box{
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.lang__selection__box span{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   cursor: pointer;
+}
+
+
+.css-qbdosj-Input input{
+   display: none;
+}
+
+.country-option{
+   display: flex;
+   gap: 3px;
+   align-items: center;
+}
+
+.login{
+   padding: 7px 20px;
+   background-color: #F0F0F0;
+   color: #000;
+   cursor: pointer;
+   border-radius: 10px;
+}
+
+.link__to__cart{
+   width: 100%;
+   height: 40px;
+   background-color: var(--bg-red);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+
+.link__to__cart a{
+   color: #fff;
+}
+
+
+.region__container{
+   position: fixed;
+   width: 100%;
+   height: 100vh;
+   background-color: #00000086;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.region__box{
+   width: 350px;
+   height: auto;
+   padding: 10px 10px;
+   background-color: #fff;
+   text-align: center;
+   border-radius: 10px;
+}
+
+.region__box ul li{
+   margin-top: 10px;
+   padding: 5px 0px;
+   cursor: pointer;
+   border-radius: 5px;
+}
+
+.region__box ul li:hover{
+   background-color: #F0F0F0;
+}
+
+.location__text{
+   cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.about__container{
+   margin-top: 170px;
+}
+
+.about__page__content{
+   margin: 0px 70px 0px 70px;
+}
+
+.about__page__content img{
+   max-width: 100%;
+   object-fit: cover;
+   border-radius: 10px;
+   margin-top: 10px;
+}
+
+.about__page__desc{
+   margin-bottom: 20px;
+}
+
+.about__page__desc p{
+   padding: 10px 0px;
+   font-weight: 500;
+}
