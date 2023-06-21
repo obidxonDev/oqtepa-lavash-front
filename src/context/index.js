@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import regionSlice from './regions'
+import reloadSlice from './updateBranch'
 
 export const store = configureStore({
    reducer:{
-      regions: regionSlice
+      reloadBranch: reloadSlice
    }
 })

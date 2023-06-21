@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { viloyatlar } from '../../static/static' 
 import './Navbar.css'
 import { MdLocationPin } from 'react-icons/md'
@@ -9,6 +10,7 @@ import usaFlag from '../../assets/usaflag.png'
 import uzbFlag from '../../assets/uzbekistanflag.png'
 import rusFlag from '../../assets/russiaflag.png'
 import ReactSelect from 'react-select'
+import { reloadBranches } from '../../context/updateBranch'
 
 function Navbar() {
    
@@ -18,6 +20,7 @@ function Navbar() {
       { value: 'ru', label: 'RU', image: rusFlag }
    ];
 
+   const dispatch = useDispatch()
    const [region, setRegion] = useState(false)
    const [userRegion, setUserRegion] = useState(null)
 
@@ -34,10 +37,13 @@ function Navbar() {
       setUserRegion(user)
       localStorage.setItem("user-region", JSON.stringify(user))
       setRegion(false)
+      dispatch(reloadBranches())
    }
       
    return (
       <React.Fragment>
+
+         
          <div className='navbar__wrapper container'>
             <Link to={"/"} className="navbar__logo">
                <img src="https://oqtepalavash.uz/assets/images/logo_wide_screen.png" alt="" />
@@ -91,6 +97,7 @@ function Navbar() {
                </div>
             </div>
          </div>
+
          <div style={region ? {display: 'flex'} : {display: 'none'}} className="region__container">
             <div className="region__box">
                <h2>Hududingizni Tanlang</h2>
