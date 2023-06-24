@@ -65,6 +65,7 @@ function Branches() {
          </div>
          <div className="branches__map" style={btnId === 0 ? { display: 'none' } : { display: 'flex' }}>
             <iframe 
+               title='No One Is Perfect'
                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12043.734284534381!2d71.646285116333!3d41.00482714250801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4beef2485ac1%3A0x316f055d9e451c6c!2sShodiyona!5e0!3m2!1suz!2s!4v1687272552210!5m2!1suz!2s" 
                className='branches__map'
                allowfullscreen="" 

@@ -1,0 +1,20 @@
+.home__wrapper{
+   margin-top: 170px;
+}
+
+.home__container{
+   display: flex;
+   margin-top: 20px;
+}
+
+.menu__sidebar{
+   height: 600px;
+   overflow: auto;
+   width: 30%;
+   background-color: #eee;
+}
+
+.menu__content{
+   width: 70%;
+   border: 1px solid red;
+}

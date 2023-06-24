@@ -1,9 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { BsInstagram, BsPhone, BsPhoneFill, BsTelegram, BsTelephoneFill } from 'react-icons/bs'
 import './Footer.css'
 
 function Footer() {
+
+   const path = useLocation()
+
+   if(path.pathname.includes("/login") || path.pathname.includes("/admin")){
+      return <></>
+    }
+
   return (
     <div className='footer__wrapper'>
       <div className="footer__container container">

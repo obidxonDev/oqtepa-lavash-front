@@ -1,0 +1,47 @@
+.admin__login__container{
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.admin__login__box{
+   width: 350px;
+   height: 300px;
+   background-color: #ddd;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+}
+
+.admin__login__box form{
+   margin-top: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   gap: 10px;
+   width: 100%;
+}
+
+.admin__login__box form input{
+   padding: 10px 0px;
+   width: 80%;
+   text-indent: 10px;
+   border: none;
+   outline: none;
+   background-color: #fff;
+}
+
+.admin__login__box button{
+   padding: 10px 30px;
+   border: none;
+   outline: none;
+   border-radius: 10px;
+   background-color: dodgerblue;
+   color: #000;
+   cursor: pointer;
+}

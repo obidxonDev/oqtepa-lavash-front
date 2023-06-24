@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { viloyatlar } from '../../static/static' 
 import './Navbar.css'
-import { MdLocationPin } from 'react-icons/md'
+import { MdLocationPin, MdMenuBook, MdShoppingCart } from 'react-icons/md'
+import { AiFillHeart } from 'react-icons/ai'
+import { FaUser } from 'react-icons/fa'
 import { BsSearch } from 'react-icons/bs'
 import { GiEarthAmerica } from 'react-icons/gi'
 import usaFlag from '../../assets/usaflag.png'
@@ -23,6 +25,7 @@ function Navbar() {
    const dispatch = useDispatch()
    const [region, setRegion] = useState(false)
    const [userRegion, setUserRegion] = useState(null)
+   const path = useLocation()
 
    useEffect(() => {
       const savedRegion = localStorage.getItem("user-region")
@@ -39,11 +42,13 @@ function Navbar() {
       setRegion(false)
       dispatch(reloadBranches())
    }
+
+   if(path.pathname.includes("/login") || path.pathname.includes("/admin")){
+      return <></>
+    }
       
    return (
-      <React.Fragment>
-
-         
+      <React.Fragment>         
          <div className='navbar__wrapper container'>
             <Link to={"/"} className="navbar__logo">
                <img src="https://oqtepalavash.uz/assets/images/logo_wide_screen.png" alt="" />
@@ -58,16 +63,27 @@ function Navbar() {
                         <li><Link to={"/contact"}>Kontaktlar</Link></li>
                      </ul>
                   </div>
-                  <MdLocationPin />
+                  <MdLocationPin className='delivery__icon'/>
                   <span className='delivery__text'>
                      <p className='navbar__text'>Yetkazib Berish yoki</p>
                      <p>Olib Ketish Turini Tanlang</p>
                   </span>
-                  <GiEarthAmerica />
+                  <GiEarthAmerica onClick={() => setRegion(true)}/>
                   <span className='location__text' onClick={() => setRegion(true)}>
                      <p className='navbar__text'>Hudud</p>
                      <p>{userRegion && userRegion.loc}</p>
                   </span>
+                  <ReactSelect
+                        value={countries.value}
+                        className="lang__selection__media"
+                        options={countries}
+                        formatOptionLabel={country => (
+                           <div className="country-option">
+                              <img width={20} src={country.image} alt="country-image" />
+                              <span>{country.label}</span>
+                           </div>
+                        )}
+                     />
                </div>
                <div className="search">
                   <div className="search__input">
@@ -93,7 +109,7 @@ function Navbar() {
                   <Link className="login">Kirish</Link>
                </div>
                <div className="link__to__cart">
-                  <Link className='link__cart'>Savatcha</Link>
+                  <Link to={"/cart"} className='link__cart'>Savatcha</Link>
                </div>
             </div>
          </div>
@@ -107,6 +123,15 @@ function Navbar() {
                   }
                </ul>
             </div>
+         </div>
+         
+         <div className="navbar__media__div">
+            <ul>
+               <li><NavLink to={"/"} className="nav__active"> <MdMenuBook/> <p>Menu</p></NavLink></li>
+               <li><NavLink to={"/liked"} className="nav__active"> <AiFillHeart/> <p>Sevimlilar</p></NavLink></li>
+               <li><NavLink to={"/cart"} className="nav__active"> <MdShoppingCart/> <p>Savatcha</p></NavLink></li>
+               <li><NavLink to={"/login"} className="nav__active"> <FaUser/> <p>Kirish</p></NavLink></li>
+            </ul> 
          </div>
       </React.Fragment>
    )
