@@ -17,16 +17,18 @@ function Home() {
       .catch(err => console.log(err))    
   }, [])
 
-
+  
   const filterData = (data) => {
     return data?.filter(i => i.type === category)
   }
-
-  const memoCategory = useMemo(() => {
+  const memoContent = useMemo(() => {
     return filterData(data)
   }, [category])
 
-  console.log(memoCategory);
+  console.log(memoContent);
+
+
+  // console.log(memoContent);
 
   return (
     <div className='home__wrapper'>
@@ -43,13 +45,13 @@ function Home() {
           </div>
         </div>
         <div className="menu__content">
-          {
-            memoCategory?.map(i => <div key={i._id} className='product__card'>
+          {/* {
+            memoContent?.map(i => <div key={i._id} className='product__card'>
               <img src={i.url} alt="" />
               <h1>{i.title}</h1>
               <p>{i.price}</p>
             </div>)
-          }
+          } */}
         </div>
       </div>
     </div>
