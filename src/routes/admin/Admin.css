@@ -87,3 +87,41 @@ input[type="file"]{
    font-size: 18px;
    color: #fff;
 }
+
+
+.table{
+   width: 90%;
+   margin: 20px auto;
+   border-collapse: collapse;
+}
+
+.table__body__row td{
+   text-align: center;
+   border-bottom: 1px solid black;
+   padding: 10px 0px;
+}
+
+.pro__del__btn{
+   padding: 10px 15px;
+   border: none;
+   outline: none;
+   background-color: red;
+   border-radius: 10px;
+   cursor: pointer;
+   color: #fff;
+}  
+
+.pro__edit__btn{
+   padding: 10px 15px;
+   border: none;
+   outline: none;
+   background-color: green;
+   border-radius: 10px;
+   cursor: pointer;
+   color: #fff;
+}
+
+.pro__img__link{
+   color: blue;
+   font-weight: 600;
+}

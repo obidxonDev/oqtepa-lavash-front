@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Admin.css'
 import axios from '../../api'
 
@@ -9,8 +10,17 @@ function Admin() {
   const [type, setType] = useState('')
   const [desc, setDesc] = useState('')
   const [img, setImg] = useState([])
+
+  const [getData, setGetData] = useState([])
   const [imgUrl, setImgUrl] = useState('')
 
+  const [reloaData, setReloadData] = useState(false)
+  
+  useEffect(() => {
+    axios.get("/products")
+      .then(res => setGetData(res.data.innerData))
+      .catch(err => console.log(err))
+  }, [reloaData])
   
   
   const handleFileChange = (e) => {
@@ -20,15 +30,25 @@ function Admin() {
     setImg(e.target.files[0])
   };
 
-
   function handleSubmit(e) {
     e.preventDefault()
-    // let data = new FormData()
-    // data.append("img", img)
-    axios.post("/products", {title, price, type, desc, img})
-      .then(res => console.log(res))
+    let data = new FormData()
+    data.append("title", title)
+    data.append("price", Number(price))
+    data.append("type", type)
+    data.append("desc", desc)
+    data.append("img", img )
+
+    axios.post("/products", data)
+      .then(res => setReloadData(p => !p))
       .catch(err => console.log(err))
-    // console.log(img);
+  }
+
+
+  function handleDeletePro(id) {
+    axios.delete(`/products/${id}`)
+      .then(res => setReloadData(p => !p))
+      .catch(err => console.log(err))
   }
   
 
@@ -42,12 +62,12 @@ function Admin() {
             <input required type="text" placeholder='Mahsulot Nomi' value={title} onChange={e => setTitle(e.target.value)}/>
           </div>
           <div className="create__input">
-            <input required type="text" placeholder='Mahsulot Narxi' value={price} onChange={e => setPrice(e.target.value)}/>
+            <input required type="number" placeholder='Mahsulot Narxi' value={price} onChange={e => setPrice(e.target.value)}/>
           </div>
           <div className="create__input">
             <select required name="" id="" value={type} onChange={e => setType(e.target.value)}>
               <option value="" disabled>Mahsulot Turi</option>
-              <option value="lavash">Lavash</option>
+              <option value="Lavash">Lavash</option>
               <option value="Pitsalar">Pitsalar</option>
               <option value="Gamburger">Gamburger</option>
               <option value="Hot Dog">Hot Dog</option>
@@ -74,7 +94,32 @@ function Admin() {
           </div>
         </div>
       </div>
-      <div className="products__container">sef</div>
+      <div className="products__container">
+        <table className='table'>
+          <thead>
+            <th>Mahsulot Nomi</th>
+            <th>Mahsulot Narxi</th>
+            <th>Mahsulot Haqida</th>
+            <th>Mahsulot Turi</th>
+            <th>Mahsulot Rasmi</th>
+            <th>Mahsulotni Tahrirlash</th>
+            <th>Mahsulotni O'chirish</th>
+          </thead>
+          <tbody className='table__body'>
+            {
+              [...getData].reverse().map(i => <tr key={i._id} className="table__body__row">
+                <td>{i.title}</td>
+                <td>{i.price}</td>
+                <td>{i.desc.slice(0, 20)}</td>
+                <td>{i.type}</td>
+                <td><Link className='pro__img__link' to={i.url}>Rasmni Ko'rish</Link></td>
+                <td><button className='pro__edit__btn'>Tahrirlash</button></td>
+                <td><button onClick={() => handleDeletePro(i._id)} className='pro__del__btn'>O'chirish</button></td>
+              </tr>)
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

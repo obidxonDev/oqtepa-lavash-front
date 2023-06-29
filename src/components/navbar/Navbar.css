@@ -1,4 +1,4 @@
-.navbar__wrapper{
+.navbar__wrapper {
    position: fixed;
    top: 0;
    left: 50%;
@@ -12,41 +12,41 @@
    background-color: #fff;
 }
 
-.navbar__items{
+.navbar__items {
    float: right;
 }
 
-.nav__items{
+.nav__items {
    display: flex;
    align-items: center;
    gap: 10px;
 }
 
-.nav__items svg{
+.nav__items svg {
    border-radius: 50%;
    font-size: 30px;
    background-color: pink;
    color: var(--bg-red);
 }
 
-.navbar__text{
+.navbar__text {
    font-weight: 500;
 }
 
 .delivery__text p:last-child,
-.location__text p:last-child{
+.location__text p:last-child {
    color: var(--bg-red);
    cursor: pointer;
    font-weight: 600;
 }
 
-.nav__links ul{
+.nav__links ul {
    display: flex;
    gap: 10px;
    font-weight: 500;
 }
 
-.search__input{
+.search__input {
    border: 1px solid var(--bg-gray);
    height: 40px;
    margin-top: 20px;
@@ -56,49 +56,50 @@
    overflow: hidden;
 }
 
-.search__input svg{
+.search__input svg {
    font-size: 23px;
    color: var(--bg-gray);
    margin: 0 10px 0 10px;
 }
 
-.search__input input{
+.search__input input {
    border: none;
    outline: none;
    width: 100%;
    height: 100%;
    font-size: 20px;
 }
-.login__box__top{
+
+.login__box__top {
    display: flex;
    gap: 10px;
    position: relative;
 }
 
-.navbar__login__box{
+.navbar__login__box {
    display: flex;
    flex-direction: column;
    gap: 20px;
 }
 
-.lang__selection__box span{
+.lang__selection__box span {
    display: flex;
    align-items: center;
    gap: 10px;
    cursor: pointer;
 }
 
-.css-qbdosj-Input input{
+.css-qbdosj-Input input {
    display: none;
 }
 
-.country-option{
+.country-option {
    display: flex;
    gap: 3px;
    align-items: center;
 }
 
-.login{
+.login {
    padding: 7px 20px;
    background-color: #F0F0F0;
    color: #000;
@@ -106,7 +107,7 @@
    border-radius: 10px;
 }
 
-.link__to__cart{
+.link__to__cart {
    width: 100%;
    height: 40px;
    background-color: var(--bg-red);
@@ -117,11 +118,11 @@
    cursor: pointer;
 }
 
-.link__to__cart a{
+.link__to__cart a {
    color: #fff;
 }
 
-.region__container{
+.region__container {
    position: fixed;
    top: 0;
    left: 0;
@@ -134,7 +135,7 @@
    z-index: 10;
 }
 
-.region__box{
+.region__box {
    width: 350px;
    height: auto;
    padding: 10px 10px;
@@ -143,61 +144,228 @@
    border-radius: 10px;
 }
 
-.region__box ul li{
+.region__box ul li {
    margin-top: 10px;
    padding: 5px 0px;
    cursor: pointer;
    border-radius: 5px;
 }
 
-.region__box ul li:hover{
+.region__box ul li:hover {
    background-color: #F0F0F0;
 }
 
-.location__text{
+.location__text {
    cursor: pointer;
 }
 
+.delivey__container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   background-color: #0000003d;
+   z-index: 13;
+}
 
+.delivery__box {
+   position: absolute;
+   height: 70%;
+   background-color: #fff;
+   border-radius: 20px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr;
+}
 
+.choose__address{
+   padding: 20px 20px;
+   position: relative;
+}
+
+.delivery__item{
+   display: flex;
+   background-color: #FAFAFA;
+   border-radius: 10px;
+   margin-top: 10px;
+}
+
+.delivery__item div{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 40px;
+   border-radius: 10px;
+   cursor: pointer;
+   user-select: none;
+   font-weight: 600;
+}
+
+.delivey__item__box{
+   position: relative;
+   margin-top: 20px;
+}
+
+.delivey__item__box input{
+   width: 100%;
+   height: 40px;
+   border-radius: 10px;
+   text-indent: 7px;
+   border: 1px solid #d3d3d3;
+   outline: none;
+}
+
+.delivey__item__box svg{
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 20px;
+   cursor: pointer;
+}
+
+.confirm__btn{
+   position: absolute;
+   bottom: 10px;
+   width: 93%;
+}
+
+.confirm__btn button{
+   width: 100%;
+   height: 40px;
+   border: none;
+   outline: none;
+   font-size: 19px;
+   font-weight: 500;
+   border-radius: 10px;
+   cursor: pointer;
+   border-radius: 10px;
+}
+
+.confirm__btn button:disabled{
+   cursor: not-allowed;
+}
+
+.take__away__container{
+   box-shadow: 0px 0px 10px #00000015;
+   border-radius: 10px;
+   overflow: auto;
+   height: 200px;
+   max-width: 100%;
+   display: flex;
+   flex-direction: column;
+   margin-top: 20px;
+   gap: 10px;
+   padding: 15px 15px;
+}
+
+.take__away__container::-webkit-scrollbar{
+   width: 7px;
+}
+
+.take__away__container::-webkit-scrollbar-thumb{
+   border-radius: 10px;
+   background-color: var(--bg-red);
+}
+
+.location__item{
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   padding: 20px 10px;
+   cursor: pointer;
+   color: var(--bg-gray);
+   font-weight: 500;
+   border-radius: 10px;
+}
+
+.location__item:hover{
+   box-shadow: 0px 0px 10px #00000015;
+}
+
+.location__item > svg{
+   padding: 5px 5px;
+   font-size: 35px;
+   border-radius: 50%;
+   background-color: pink;
+   color: var(--bg-red);
+}
+
+.braches__title__content p{
+   color: var(--bg-blue);
+}
+
+.choose__map{
+   user-select: none;
+   overflow: hidden;
+   position: relative;
+}
+
+.delivery__close__icon2{
+   position: absolute;
+   top: 4%;
+   right: 5%;
+   font-size: 30px;
+   cursor: pointer;
+}
+
+.delivery__close__icon1{
+   display: none;
+}
+
+.regions__map{
+   width: 100%;
+   height: 88%;
+   margin-top: 12%;
+}
+
+.navbar__media__div,
+.lang__selection__media {
+   display: none;
+}
 
 @media screen and (max-width: 1070px) {
+
    .location__text,
-   .delivery__text{
+   .delivery__text {
       display: none;
    }
-   .navbar__wrapper{
+
+   .navbar__wrapper {
       justify-content: space-around;
    }
 }
 
-.navbar__media__div,
-.lang__selection__media{
-   display: none;
-}
 
 @media screen and (max-width: 820px) {
-   .navbar__wrapper{
+   .navbar__wrapper {
       justify-content: space-between;
       gap: 20px;
+      height: 100px;
    }
 
-   .lang__selection__media{
+   .lang__selection__media {
       display: block;
    }
 
-   .nav__items{
+   .nav__items {
       display: flex;
       justify-content: flex-end;
    }
 
-
    .nav__links,
    .search,
-   .navbar__login__box{
+   .navbar__login__box,
+   .delivery__close__icon2,
+   .choose__map {
       display: none;
    }
-   .navbar__media__div{
+
+   .navbar__media__div {
       display: flex;
       justify-content: space-around;
       height: 60px;
@@ -208,6 +376,7 @@
       left: 0;
       z-index: 7;
    }
+
    .navbar__media__div ul {
       display: flex;
       width: 100%;
@@ -215,7 +384,8 @@
       justify-content: space-around;
 
    }
-   .navbar__media__div ul li a{
+
+   .navbar__media__div ul li a {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -223,10 +393,49 @@
       font-size: 22px;
       color: rgb(255, 180, 192);
    }
-   .nav__active.active{
+
+   .nav__active.active {
       color: var(--bg-red);
    }
-   .navbar__logo img{
+
+   .navbar__logo img {
+      width: 70%;
+   }
+
+   .delivery__box{
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      height: 80%;
+   }
+
+   .delivery__close__icon1{
+      display: inline;
+      position: absolute;
+      top: 2%;
+      right: 5%;
+      font-size: 30px;
+   }
+
+   .take__away__container{
+      height: 38vh;
+   }
+
+   .confirm__btn{
+      bottom: 20px;
+   }
+}
+
+@media screen and (max-width: 385px) {
+   .choose__address > h2{
+      font-size: 18px;
+   }
+   .confirm__btn{
       width: 90%;
+   }
+   .confirm__btn button{
+      font-size: 15px;
+   }
+   .delivery__item > div > p{
+      font-size: 15px;
    }
 }

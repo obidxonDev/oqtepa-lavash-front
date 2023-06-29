@@ -45,3 +45,11 @@
    color: var(--bg-gray);
    font-weight: 500;
 }
+
+
+
+@media screen and (max-width: 820px) {
+   .footer__wrapper{
+      display: none;
+   }
+}

@@ -1,0 +1,16 @@
+.delivey__container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0000003d;
+}
+
+.delivery__box{
+  width: 80%;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 20px;
+  
+}
