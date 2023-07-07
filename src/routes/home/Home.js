@@ -5,13 +5,15 @@ import SingleProduct from '../../components/single-product/SingleProduct'
 import loaderGif from '../../assets/pizza-gif-loader.gif'
 import axios from '../../api'
 import menu__img from '../../assets/menu-img.png'
-import { useDispatch } from 'react-redux'
-import { addToCart } from '../../context/cart'
+import { useDispatch, useSelector } from 'react-redux'
+import cart, { addToCart, decFromCart } from '../../context/cart'
 
 function Home() {
 
+  const cartItems = useSelector(c => c.cart.cartItems)
+
   const [data, setData] = useState([])
-  const [category, setCategory] = useState("lavash")
+  const [category, setCategory] = useState("Gamburger")
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
   const [singleData, setSingleData] = useState(null)
@@ -77,11 +79,21 @@ function Home() {
                 <h1>{category}</h1>
                 <div className="products">
                   {
-                    memoContent && memoContent?.map(i => <div key={i._id} className='product__card'>
+                    memoContent && memoContent?.map((i, id) => <div key={i._id} className='product__card'>
                       <img src={i.url} alt="" onClick={() => setSingleData(i)} />
                       <h3>{i.title}</h3>
                       <p><p style={{ color: '#E52D2B' }}> {i.price} </p> so'm</p>
-                      <div className='add__to__cart' onClick={() => dispatch(addToCart(i))}>Qo'shish</div>
+                      <div className='add__to__cart' >
+                        {cartItems?.find((e) => e._id === i._id) ? (
+                          <div className="inc__cart">
+                            <button onClick={() => dispatch(decFromCart(i))}>-</button>
+                            <p>{cartItems[id].cartQuantity}</p>
+                            <button onClick={() => dispatch(addToCart(i))}>+</button>
+                          </div>
+                        ) : (
+                          <div className='add__cart' onClick={() => dispatch(addToCart(i))}>Qo'shish</div>
+                        )}
+                      </div>
                       <AiOutlineHeart />
                     </div>)
                   }
