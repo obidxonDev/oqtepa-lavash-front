@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { BsInstagram, BsPhone, BsPhoneFill, BsTelegram, BsTelephoneFill } from 'react-icons/bs'
+import Logo from '../../assets/logo.svg'
 import './Footer.css'
 
 function Footer() {
@@ -16,7 +17,7 @@ function Footer() {
       <div className="footer__container container">
          <div className="footer__items">
             <div className="footer__img">
-               <img src="https://oqtepalavash.uz/assets/images/logo_wide_screen.png" alt="" />
+               <img src={Logo} alt="" />
             </div>
             <ul>
                <li><Link>Menu</Link></li>

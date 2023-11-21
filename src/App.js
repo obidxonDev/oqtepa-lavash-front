@@ -10,6 +10,8 @@ import Cart from './routes/cart/Cart';
 import PrivateRoute from './routes/private/PrivateRoute'
 import Admin from './routes/admin/Admin'
 import AdminLogin from './routes/adminLogin/AdminLogin';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -23,9 +25,10 @@ function App() {
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/login' element={<AdminLogin/>}/>
         <Route path='/' element={<PrivateRoute/>}>
-          <Route path='/admin' element={<Admin/>}/>
+          <Route path='/admin/*' element={<Admin/>}/>
         </Route>
       </Routes>
+      <ToastContainer/>
       <Footer/>
     </div>
   );

@@ -16,8 +16,9 @@ function AdminLogin() {
     e.preventDefault()
     axios.post("/admin/login", {login, password})
       .then(res => {
+        console.log(res);
         if(res.data.innerData){
-          localStorage.setItem("auth-token", JSON.stringify(res.data.innerData.token))
+          localStorage.setItem("auth-token", res.data.innerData.token)
           setErrMsg('')
           nav("/admin")
         }

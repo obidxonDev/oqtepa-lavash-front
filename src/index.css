@@ -12,11 +12,24 @@ body {
 }
 
 :root{
-  --text-color: #212529;
+  /* --text-color: #212529; */
   --bg-red: #E52D2B;
   --bg-gray: #797C82;
   --bg-blue: #0059ff;
+
+  --admin-header-bg-dark: #242424;
+  --admin-header-text-dark: #fff;
+  --admin-bg-dark: #1E1E1E;
+  
+  --admin-header-bg-light: #fff;
+  --admin-header-text-light: #555555;
+  --admin-bg-light: #F5F5F5;
+
+  --admin-header-active: orange;
+  --input-border: dodgerblue;
+  --red-icon: red;
 }
+
 
 a{
   text-decoration: none;

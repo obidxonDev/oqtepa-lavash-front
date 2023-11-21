@@ -11,6 +11,7 @@ import { GiEarthAmerica } from 'react-icons/gi'
 import usaFlag from '../../assets/usaflag.png'
 import uzbFlag from '../../assets/uzbekistanflag.png'
 import rusFlag from '../../assets/russiaflag.png'
+import Logo from '../../assets/logo.svg'
 import ReactSelect from 'react-select'
 import { reloadBranches } from '../../context/updateBranch'
 
@@ -66,7 +67,7 @@ function Navbar() {
       <React.Fragment>
          <div className='navbar__wrapper container'>
             <Link to={"/"} className="navbar__logo">
-               <img src="https://oqtepalavash.uz/assets/images/logo_wide_screen.png" alt="" />
+               <img src={Logo} alt="" />
             </Link>
             <div className="navbar__items">
                <div className="nav__items">

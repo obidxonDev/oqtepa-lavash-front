@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import './Admin.css'
 import axios from '../../api'
+import AdminHeader from '../../components/sidebar/AdminHeader'
+import CreateProduct from './create-product/CreateProduct'
+import ManageProduct from './products-list/ManageProduct'
+import CreateRegion from './manage-regions/CreateRegion'
 
 function Admin() {
 
@@ -15,14 +19,14 @@ function Admin() {
   const [imgUrl, setImgUrl] = useState('')
 
   const [reloaData, setReloadData] = useState(false)
-  
+
   useEffect(() => {
     axios.get("/products")
       .then(res => setGetData(res.data.innerData))
       .catch(err => console.log(err))
   }, [reloaData])
-  
-  
+
+
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     const objectURL = URL.createObjectURL(selectedFile);
@@ -37,7 +41,7 @@ function Admin() {
     data.append("price", Number(price))
     data.append("type", type)
     data.append("desc", desc)
-    data.append("img", img )
+    data.append("img", img)
 
     axios.post("/products", data)
       .then(res => setReloadData(p => !p))
@@ -50,19 +54,26 @@ function Admin() {
       .then(res => setReloadData(p => !p))
       .catch(err => console.log(err))
   }
-  
+
 
   return (
     <div className='admin__wrapper'>
-        <h1>Welcome Boss,</h1>
+
+      <AdminHeader />
+      <Routes>
+        <Route path='/create-product' element={<CreateProduct/>}/>
+        <Route path='/manage-product' element={<ManageProduct/>}/>
+        <Route path='/create-region' element={<CreateRegion/>}/>
+      </Routes>
+
       <div className="create__product">
         <form action="" onSubmit={handleSubmit}>
           <h3>Mahsulot Yaratish Uchun Quyidagilarni To'ldiring</h3>
           <div className="create__input">
-            <input required type="text" placeholder='Mahsulot Nomi' value={title} onChange={e => setTitle(e.target.value)}/>
+            <input required type="text" placeholder='Mahsulot Nomi' value={title} onChange={e => setTitle(e.target.value)} />
           </div>
           <div className="create__input">
-            <input required type="number" placeholder='Mahsulot Narxi' value={price} onChange={e => setPrice(e.target.value)}/>
+            <input required type="number" placeholder='Mahsulot Narxi' value={price} onChange={e => setPrice(e.target.value)} />
           </div>
           <div className="create__input">
             <select required name="" id="" value={type} onChange={e => setType(e.target.value)}>
@@ -79,14 +90,15 @@ function Admin() {
             </select>
           </div>
           <div className="create__input">
-            <textarea required value={desc} onChange={e => setDesc(e.target.value)}placeholder='Mahsulot Tarkibi'></textarea>
+            <textarea required value={desc} onChange={e => setDesc(e.target.value)} placeholder='Mahsulot Tarkibi'></textarea>
           </div>
           <div className="create__input">
             <label htmlFor="file">Choose a Photo</label>
-            <input required onChange={handleFileChange} type="file" id='file' accept='image/*'/>
+            <input required onChange={handleFileChange} type="file" id='file' accept='image/*' />
           </div>
           <button className='submit__btn'>Yaratish</button>
         </form>
+
         <div className="preview__container">
           {imgUrl && <h3>Mahsulotning Rasmi</h3>}
           <div className="preview__card">
@@ -94,8 +106,9 @@ function Admin() {
           </div>
         </div>
       </div>
-      <div className="products__container">
-        <table className='table'>
+
+      {/* <div className="products__container">
+        <table className='disabltabl'>
           <thead>
             <th>Mahsulot Nomi</th>
             <th>Mahsulot Narxi</th>
@@ -119,7 +132,8 @@ function Admin() {
             }
           </tbody>
         </table>
-      </div>
+      </div> */}
+
     </div>
   )
 }

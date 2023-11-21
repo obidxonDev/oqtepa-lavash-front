@@ -1,0 +1,47 @@
+
+.admin__header__wrapper{
+    min-width: 270px;
+    min-height: 100vh;
+    background-color: var(--admin-header-bg-dark);
+    position: relative;
+}
+
+.admin__links{
+    padding: 30px 30px;
+    color: var(--admin-header-text-dark);
+}
+
+.admin__name{
+    text-align: center;
+    margin-top: 30px;
+    color: var(--admin-header-text-dark);
+    font-size: 22px;
+}
+
+.admin__links li a{
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: var(--admin-header-text-dark);
+    transition: .3s;
+}
+
+.admin__links li a:hover{
+    color: orange;
+    transition: .3s;
+}
+
+.log__out__btn{
+    position: absolute;
+    bottom: 40px;
+    width: 80%;
+    left: 10%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}

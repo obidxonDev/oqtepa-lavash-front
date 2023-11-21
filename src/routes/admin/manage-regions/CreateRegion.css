@@ -1,0 +1,6 @@
+.regions__wrapper{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--admin-bg-dark);
+    color: var(--admin-header-text-dark);
+}

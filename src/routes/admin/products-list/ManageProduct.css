@@ -1,0 +1,246 @@
+.manage__product__wrapper {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--admin-bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lds-dual-ring{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(34, 34, 34, 0.514);
+    z-index: 12;
+}
+
+.lds-dual-ring::after {
+    position: absolute;
+    content: "";
+    width: 80px;
+    height: 80px;
+    top: 40%;
+    left: 45%;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+.manage__box {
+    width: 97%;
+    height: 95%;
+    border-radius: 7px;
+    background-color: var(--admin-header-bg-dark);
+    border: 1px solid gray;
+    overflow: auto;
+    margin: 0px 20px;
+    position: relative;
+}
+
+.searchLoader{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(34, 34, 34, 0.514);
+    z-index: 12;
+}
+
+.searchLoader::after{
+    position: absolute;
+    content: "";
+    width: 80px;
+    height: 80px;
+    top: 40%;
+    left: 45%;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+
+.manage__box::-webkit-scrollbar {
+    display: none;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 70px;
+}
+
+.tbody {
+    width: 100%;
+    color: var(--admin-header-text-dark);
+}
+
+.table__row {
+    height: 55px;
+    background-color: var(--admin-bg-dark);
+}
+
+.table__row:nth-child(odd) {
+    background-color: var(--admin-header-bg-dark);
+}
+
+thead {
+    background-color: #1a2027;
+    color: var(--admin-header-text-dark);
+    font-size: 14px;
+    height: 50px;
+    position: sticky;
+    top: 70px;
+    z-index: 11;
+}
+
+td,
+th {
+    padding: 8px;
+    text-align: center;
+}
+
+td {
+    border-bottom: 1px solid gray;
+}
+
+
+
+.manage__edit__btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.manage__del__btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.manage__img__link {
+    color: blue;
+}
+
+.manage__edit__img__icon,
+.manage__img__see__icon{
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.manage__img__see__icon{
+    color: blue;
+    margin-right: 5px;
+}
+
+
+input[type="checkbox"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin-left: 45px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+}
+
+input[type="checkbox"]::before {
+    position: absolute;
+    content: "";
+    top: 2px;
+    left: 2px;
+    /* transform: translate(-50%, -50%); */
+    width: 16px;
+    height: 16px;
+    transform: scale(0);
+    transition: 120ms ease-in-out;
+    /* box-shadow: inset 30px 50px rebeccapurple; */
+    background-color: dodgerblue;
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+button:disabled{
+    cursor: not-allowed;
+    opacity: .5;
+}
+
+.manage__header {
+    min-width: 77%;
+    height: 70px;
+    position: fixed;
+    z-index: 11;
+    display: flex;
+    gap: 20px;
+    padding-left: 20px;
+    background-color: var(--admin-header-bg-dark);
+    border-radius: 5px;
+}
+
+.manage__header article{
+    display: flex;
+    align-items: center;
+}
+
+.del__seleceted__btn{
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    background-color: red;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sel__all{
+    user-select: none;
+}
+.sel__all label{
+    cursor: pointer;
+    color: var(--admin-header-text-dark);
+}
+.sel__all input{
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.manage__select{
+    padding: 8px 12px;
+    border: 1px solid gray;
+    background: var(--admin-bg-dark);
+    outline: none;
+    color: #fff;  
+    border-radius: 5px;
+}
+
+.manage__search input{
+    padding: 8px 0;
+    width: 200px;
+    outline: none;
+    border: 1px solid gray;
+    text-indent: 12px;
+    background-color: var(--admin-bg-dark);
+    color: #fff;
+}

@@ -1,0 +1,54 @@
+.edit__img__wrapper {
+    width: 350px;
+    height: 100vh;
+    background-color: var(--admin-bg-dark);
+    color: var(--admin-header-text-dark);
+    position: fixed;
+    top: 0;
+    right: -350px;
+    z-index: 20;
+    transition: .3s;
+    padding: 20px 20px;
+}
+
+.edit__img__wrapper.show {
+    right: 0;
+    transition: .3s;
+}
+
+
+.edit__img__shadow {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background-color: #000000b4;
+}
+
+.edit__img__img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.edit__img__form{
+    margin-top: 30px;
+}
+
+.edit__file__name{
+    margin-top: 20px;
+}
+
+.edit__submit__btn{
+    width: 100%;
+    height: 40px;
+    background-color: var(--bg-blue);
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}

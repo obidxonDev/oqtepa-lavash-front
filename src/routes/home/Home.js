@@ -13,7 +13,7 @@ function Home() {
   const cartItems = useSelector(c => c.cart.cartItems)
 
   const [data, setData] = useState([])
-  const [category, setCategory] = useState("Gamburger")
+  const [category, setCategory] = useState("Lavash")
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
   const [singleData, setSingleData] = useState(null)
@@ -32,23 +32,32 @@ function Home() {
 
 
   const filterData = (data) => {
-    return data.filter(i => i.type === category)
+    return data.filter(i => i.cType.categoryName === category)
   }
 
   const memoContent = useMemo(() => {
     return filterData(data)
   }, [category, data])
 
+  // const menuItemsMemo = useMemo(() => {
+  //   let categories = []
+  //   for (let i of data) {
+  //     if (!categories.includes(i.cType.categoryName)) {
+  //       categories.push(i.cType)
+  //     }
+  //   }
+  //   return categories
+  // }, [data])
+
   const menuItemsMemo = useMemo(() => {
     let categories = []
-    for (let i of data) {
-      if (!categories.includes(i.type)) {
-        categories.push(i.type)
+    data.forEach(i => {
+      if (!categories.some(c => c.categoryName === i.cType.categoryName)) {
+        categories.push(i.cType)
       }
-    }
+    })
     return categories
   }, [data])
-
 
   return (
     <React.Fragment>
@@ -69,9 +78,9 @@ function Home() {
                 <div className="menu__items">
                   {
                     menuItemsMemo && menuItemsMemo?.map((i, id) => <div
-                      className={`menu__item ${category === i ? "active" : ""}`}
-                      onClick={() => setCategory(i)}
-                      key={id}> <img className='menu__img' width={40} src={menu__img} alt="" /> {i}</div>)
+                      className={`menu__item ${category === i.categoryName ? "active" : ""}`}
+                      onClick={() => setCategory(i.categoryName)}
+                      key={id}> <img className='menu__img' width={40} src={i.categoryImg} alt="" /> {i.categoryName}</div>)
                   }
                 </div>
               </div>
@@ -84,10 +93,11 @@ function Home() {
                       <h3>{i.title}</h3>
                       <p><p style={{ color: '#E52D2B' }}> {i.price} </p> so'm</p>
                       <div className='add__to__cart' >
-                        {cartItems?.find((e) => e._id === i._id) ? (
+
+                        {cartItems?.find(e => e._id === i._id) ? (
                           <div className="inc__cart">
                             <button onClick={() => dispatch(decFromCart(i))}>-</button>
-                            <p>{cartItems[id].cartQuantity}</p>
+                            <p>{cartItems?.find((item) => item._id === i._id).cartQuantity}</p>
                             <button onClick={() => dispatch(addToCart(i))}>+</button>
                           </div>
                         ) : (
